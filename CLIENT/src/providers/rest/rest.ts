@@ -10,6 +10,8 @@ export class RestProvider {
 
   }
 
+// TODO:  Fix GET call (Json object to Array)
+
 getUsers() {
   return new Promise(resolve => {
     this.http.get(this.apiUrl + '/user' + '?transform=1').subscribe(data => {

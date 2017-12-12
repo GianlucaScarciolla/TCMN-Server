@@ -8,6 +8,7 @@ An app for car teams and car meets.
 - Angular
 - Cordova
 - NodeJS
+- Less
 - PHP
 
 ## Authors
