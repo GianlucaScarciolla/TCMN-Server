@@ -1,6 +1,6 @@
-# TCMN - The Car Meet Network _version 0.0.1_
+# TCMN - The Car Meet Network
 An app for car teams and car meets.
-
+Version: _0.0.1_
 
 ## Technologies used
 
