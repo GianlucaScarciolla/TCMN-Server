@@ -1,6 +1,10 @@
-# TCMN - The Car Meet Network
+# TCMN - The Car Meet Network (Server)
 An app for car teams and car meets.
 Version: _0.0.1_
+
+
+## TCMN App
+You can find the App side of this project [here](https://github.com/GianlucaScarciolla/TCMN-App).
 
 ## Technologies used
 
@@ -10,6 +14,7 @@ Version: _0.0.1_
 - NodeJS
 - Less
 - PHP
+- Typescript
 
 ## Authors
 
@@ -19,19 +24,9 @@ Version: _0.0.1_
 ## How to use
 That's how you can run this project.
 
-### Client
-
-First you have to download and install [NodeJS](https://nodejs.org/en/).
-After that, you have to install the [Ionicframework](https://ionicframework.com/getting-started) to start the project.
-
-```
-$ ionic start tcmn https://github.com/GianlucaScarciolla/TCMN/tree/master/CLIENT
-$ cd tcmn
-$ ionic serve
-```
 ### Server
 
-Put all files from [SERVER](https://github.com/GianlucaScarciolla/TCMN/tree/master/SERVER) into your web server root path and start the server.
+Put all files from [SERVER](https://github.com/GianlucaScarciolla/TCMN/tree/master/server) into your web server root path and start the server.
 
 ## Todo
 * a lot
