@@ -36,7 +36,7 @@ var RegisterPage = (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"/Users/gianlucascarciolla/Documents/DEV/GITHUB/TCMN/CLIENT/src/pages/register/register.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Add User</h2>\n  <form (ngSubmit)="saveUser()">\n    <ion-item>\n      <ion-label>Name</ion-label>\n      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Email</ion-label>\n      <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Phone</ion-label>\n      <ion-input type="text" [(ngModel)]="user.phone" name="phone"></ion-input>\n    </ion-item>\n    <ion-item-divider color="light">Address</ion-item-divider>\n    <ion-item>\n      <ion-label>Street</ion-label>\n      <ion-input type="text" [(ngModel)]="user.address.street" name="street"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>City</ion-label>\n      <ion-input type="text" [(ngModel)]="user.address.city" name="city"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Zip Code</ion-label>\n      <ion-input type="text" [(ngModel)]="user.address.zipcode" name="zipcode"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" block>Add User</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/gianlucascarciolla/Documents/DEV/GITHUB/TCMN/CLIENT/src/pages/register/register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"/Users/gianlucascarciolla/Documents/DEV/GITHUB/TCMN/CLIENT/src/pages/register/register.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Add User</h2>\n  <form (ngSubmit)="saveUser()">\n    <ion-item>\n      <ion-label>Name</ion-label>\n      <ion-input type="text" [(ngModel)]="user.name" name="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" [(ngModel)]="user.surname" name="username"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" block>Add User</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/gianlucascarciolla/Documents/DEV/GITHUB/TCMN/CLIENT/src/pages/register/register.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]])
     ], RegisterPage);
@@ -161,9 +161,10 @@ var ListPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-list',template:/*ion-inline-start:"/Users/gianlucascarciolla/Documents/DEV/GITHUB/TCMN/CLIENT/src/pages/list/list.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>List</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list inset>\n    <ion-item *ngFor="let team of teams">\n      <h2>{{team.id}}</h2>\n      <h2>{{team.Name}}</h2>\n      <p>{{team.test}}</p>\n      <p>{{team.lol}}</p>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/gianlucascarciolla/Documents/DEV/GITHUB/TCMN/CLIENT/src/pages/list/list.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_rest_rest__["a" /* RestProvider */]) === "function" && _b || Object])
     ], ListPage);
     return ListPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=list.js.map
@@ -362,7 +363,7 @@ var RestProvider = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             _this.http.get(_this.apiUrl + '/user' + '?transform=1').subscribe(function (data) {
-                resolve(data);
+                resolve(data.user);
             }, function (err) {
                 console.log(err);
             });
@@ -372,7 +373,7 @@ var RestProvider = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             _this.http.get(_this.apiUrl + '/team' + '?transform=1').subscribe(function (data) {
-                resolve(data);
+                resolve(data.team);
             }, function (err) {
                 console.log(err);
             });
@@ -388,6 +389,7 @@ var RestProvider = (function () {
                 reject(err);
             });
         });
+        // TODO:  Create PUT call and soft Delete
         // this.http.post(this.apiUrl+'/users', JSON.stringify(data), {
         //   headers: new HttpHeaders().set('Authorization', 'my-auth-token'),
         //   params: new HttpParams().set('id', '3'),
@@ -400,9 +402,10 @@ var RestProvider = (function () {
     };
     RestProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], RestProvider);
     return RestProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=rest.js.map

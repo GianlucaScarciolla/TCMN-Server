@@ -12,7 +12,7 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 
 export class RegisterPage {
-  user = { name: '', username: '', email: '', phone: '', website: '', address: { street: '', city: '', zipcode: ''}};
+  user = { name: '', surname: ''};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
   }
